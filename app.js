@@ -2,7 +2,7 @@ const fs = require('fs')
 require("dotenv").config();
 const cors = require("cors")
 const path = require('path')
-const axios = require("axios")
+// const axios = require("axios")
 const helmet = require("helmet")
 const cheerio = require("cheerio")
 const express = require("express");
@@ -171,23 +171,23 @@ res.json(getRowsForAnnouncements.data.values)
 
 
 // comic endpoint yea!
-app.get('/comic',(req,res)=>{
-  const random_int = Math.floor(Math.random() * 2500);
-  axios.get(`https://xkcd.com/${random_int}/`)
-  .then((response)=>{
-      const html = response.data
-      const $ = cheerio.load(html)//$(".itemListElement")
-      const comic_img = $("#middleContainer")
-      const url = comic_img.find("a")
-      .next()
-      .next()
-      .text()
-      res.json(url)
+// app.get('/comic',(req,res)=>{
+//   const random_int = Math.floor(Math.random() * 2500);
+//   axios.get(`https://xkcd.com/${random_int}/`)
+//   .then((response)=>{
+//       const html = response.data
+//       const $ = cheerio.load(html)//$(".itemListElement")
+//       const comic_img = $("#middleContainer")
+//       const url = comic_img.find("a")
+//       .next()
+//       .next()
+//       .text()
+//       res.json(url)
     
 
 
-  }).catch((err)=> console.log(err))
-})
+//   }).catch((err)=> console.log(err))
+// })
 
 
 
